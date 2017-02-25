@@ -5,7 +5,7 @@
 3. contains 2 pages - search and details  
 4. works for both landscape and portrait - auto layout is used for view controller and tableview/cells.  
 5. core data is used - the last search results are cached. whenever a new keyword is searched, the older results are cleared and the results for new keyword are cached.  
-6. paginated content - in the search page, click on search field, enter a keyword, you can watch activity indicator on status bar, the results are displayed after ~5 seconds. Scroll down infinitely to see paginated content refreshing whenever the available cells are close to exhaustion. page size is set to 30.  
+6. paginated content - in the search page, click on search field, enter a keyword, you can watch activity indicator on status bar, the results are displayed after ~5 seconds. Scroll down infinitely to see paginated content refreshing whenever the available cells are close to exhaustion. page size is set to 30.    
 7. Image Caching is used - time out before cleanup/refresh of an image is set to 10hours.
 8. item detail page - supports landscape and portrait. shows full image, title, price and description.  
 9. custom protocols - ListViewInterface, ListModuleInterface. VIPER is very protocol driven architecture.  
@@ -16,7 +16,7 @@ VIPER ARCHITECTURE outline is as below:
 For each page, we have the following components.
 Transition between one page to another happens via Wireframe. Also, flow of data between pages happens via wireframes.  
 User-Interface(1) <---> Presenter(2) <---> Interactor(3) <---> Data-Manager(4)  <---> Data-Store/API-Service(5)  
-                        ^  
+                        ^   
                         |  
                         |   
                         v  
