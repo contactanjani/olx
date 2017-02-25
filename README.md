@@ -14,7 +14,7 @@
 
 VIPER ARCHITECTURE outline is as below:
 For each page, we have the following components.
-Transition between one page to another happens via Wireframe. Also, flow of data between pages happens via wireframes.
+Transition between one page to another happens via Wireframe. Also, flow of data between pages happens via wireframes.  
 User-Interface(1) <---> Presenter(2) <---> Interactor(3) <---> Data-Manager(4)  <---> Data-Store/API-Service(5)  
                         ^  
                         |  
