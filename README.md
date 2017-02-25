@@ -1,6 +1,6 @@
 # olx
 
--XCode 8.1, Swift3 is used.
+-XCode 8.1, Swift3 is used.  
 -VIPER architecture used - very scalable architecture, separation of responsibilities of classes.  
 -contains 2 pages - search and details  
 -works for both landscape and portrait - auto layout is used for view controller and tableview/cells.  
