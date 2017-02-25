@@ -28,9 +28,58 @@ class olxUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testSearchBar() {
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        XCTAssert(tablesQuery.searchFields["Search"].exists == true)
     }
     
+    func testCancelButton() {
+        
+        let tablesQuery = XCUIApplication().tables
+        tablesQuery.searchFields["Search"].tap()
+        XCTAssert(tablesQuery.buttons["Cancel"].exists == true)
+    }
+    
+    func testSearchResults() {
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.searchFields["Search"].tap()
+        
+        tablesQuery.searchFields["Search"].typeText("iphone")
+        sleep(6)
+        tablesQuery.buttons["Cancel"].tap()
+        let count = tablesQuery.cells.count
+        XCTAssert(count > 0)
+    }
+    
+    func testDetailsPage() {
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.searchFields["Search"].tap()
+        
+        tablesQuery.searchFields["Search"].typeText("iphone")
+        sleep(6)
+        tablesQuery.buttons["Cancel"].tap()
+        tablesQuery.cells.element(boundBy: 0).tap()
+        
+        XCTAssert(app.navigationBars["Details"].staticTexts["Details"].exists == true)
+        
+    }
+    
+    func testLandScapeOrientation()  {
+        
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.searchFields["Search"].tap()
+        
+        tablesQuery.searchFields["Search"].typeText("iphone")
+        sleep(6)
+        tablesQuery.buttons["Cancel"].tap()
+        XCUIDevice.shared().orientation = .landscapeLeft
+        
+        let count = tablesQuery.cells.count
+        XCTAssert(count > 0)
+        
+    }
 }
